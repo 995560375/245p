@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tabs__sidebar">
+         <button class="tabs__button tabs__button--active" data-for-tab="1">tab #1</button>
+         <button class="tabs__button" data-for-tab="2">tab #2</button>
+         <button class="tabs__button" data-for-tab="3">tab #3</button>
+        </div>
+       
+        <div class="tabs__content tabs__content--active" data-tab="1">content1</div>
+        <div class="tabs__content" data-tab="2">content2</div>
+        <div class="tabs__content" data-tab="3">content3</div>
+       
+        </div>
+       </div>
+</body>
+</html>
+
+<script>
+    
+    function setupTabs() {
+    document.querySelectorAll(".tabs__button").forEach((button) => {
+        button.addEventListener("click", () => {
+                console.log("click event on button");
+                const sideBar = button.parentElement;
+                const tabsContainer = sideBar.parentElement;
+                // identifying tab numbers
+                const tabNumber = button.dataset.forTab;
+                // activation of a given tab
+                const tabToActivate = tabsContainer.querySelector(`.tabs__content[data-tab="${tabNumber}"]`);
+                sideBar.querySelectorAll(".tabs__button").forEach((button) => {
+                    button.classList.remove("tabs__button--active");
+                });
+
+                tabsContainer.querySelectorAll(".tabs__content").forEach((tab) => {
+                    tab.classList.remove("tabs__content--active");
+                });
+
+                button.classList.add("tabs__button--active");
+                tabToActivate.classList.add("tabs__content--active");
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setupTabs();
+    });
+    
+    
+</script>
