@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="carousel">
+            <div class="slide__container">
+                <img src="../images/dog2.png" id="lastClone"/>
+                <img src="../images/dog.png" />
+                <img src="../images/dog-personality-types-0422.jpeg" />
+                <img src="../images/dog2.png" />
+                <img src="../images/dog.png" id="firstClone"/>
+            </div>
+      </div>
+        <button id="prevButton">prev</button>
+        <button id="nextButton">next</button>
+</body>
+</html>
+
+<script>
+    let slideContainer = document.querySelector(".slide__container");
+    let images = document.querySelectorAll(".slide__container img");
+    let prevButton = document.querySelector("#prevButton");
+    let nextButton = document.querySelector("#nextButton");
+    // let imgSize = images.item(0);
+    //Why can't get the imgSize????
+    let imgSize = 600;
+    console.log(images);
+    console.log(imgSize);
+    let counter = 1;
+    slideContainer.style.transform = "translateX(" + -imgSize * counter + "px)";
+    nextButton.addEventListener("click", () => {
+        console.log("next--------------")
+        if (counter >= images.length - 1) return; // prevent the click to happen if we are at the last image
+        counter = counter + 1; // add to the counter value if we clicked
+        slideContainer.style.transition = "1.00s ease-in-out"; // transitioning should happen with a 0.25s long transition
+        slideContainer.style.transform = "translateX(" + -imgSize * counter + "px)"; // the slideContainer's CSS transform shall be updated upon click
+        console.log(slideContainer.style.transform);
+    });
+    prevButton.addEventListener("click", () => {
+        if (counter <= 0) return; // prevent the click to happen if we are at the first image
+        counter = counter - 1; // deduct from the counter value if we clicked
+        slideContainer.style.transition = "1.00s ease-in-out"; // transitioning should happen with a 0.25s long transition
+        slideContainer.style.transform = "translateX(" + -imgSize * counter + "px)"; // the slideContainer's CSS transform shall be updated upon click
+    });
+    slideContainer.addEventListener("transitionend", () => {
+        // if the current image we are at is the first clone we need to update the counter and
+        // jump to the last slide without a transition
+        if (images[counter].id === "firstClone") {
+            slideContainer.style.transition = "0s ease-in-out";
+            counter = images.length - counter;
+        }
+        // if the current image we are at is the last clone we need to update the counter and
+        // jump to the first slide without a transition
+        if (images[counter].id === "lastClone") {
+            slideContainer.style.transition = "0s ease-in-out";
+            counter = images.length - 2;
+        }
+
+        // we need to execute the transform
+        slideContainer.style.transform = "translateX(" + -imgSize * counter + "px)";
+    });
+</script>
+
+<style>
+    .carousel {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        width: 600px;
+        /*  */
+        overflow: hidden;
+    }
+
+    .slide__container {
+        display: inline-flex;
+        white-space: nowrap;
+        position: relative;
+        height: 300px;
+    }
+
+    img {
+        /*  */
+        object-fit: cover;
+        width: 600px;
+        height: 600px;
+        border-radius: 10%;
+
+    }
+</style>
