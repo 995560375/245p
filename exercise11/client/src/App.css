@@ -1,0 +1,20 @@
+tr {
+  padding: 10px;
+}
+
+form {
+  background-color: bisque;
+  border: solid gray;
+}
+
+.root {
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input {
+  
+}
