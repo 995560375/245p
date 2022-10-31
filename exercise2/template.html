@@ -25,6 +25,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        gap: 150px;
       }
 
       .left {
@@ -50,9 +51,18 @@
       .center {
         margin: 5%;
         height: 250px;
+        width: 800px;
         background-color: red;
         color: white;
+        margin-right: 0;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
+
+      
 
       .inner {
         width: 450px;
@@ -64,6 +74,16 @@
         color: yellow;
         display: flex;
         vertical-align: bottom;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+
+      .left .inner .text {
+          text-align: right;
+          height:fit-content;
+          margin: 0px;
       }
 
       .right .inner {
@@ -71,9 +91,18 @@
         color:purple;
       }
 
+      
+
       .center .inner {
         border: 2px solid blue;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
       }
+      
       /* add/modify your css properties below this line */
     </style>
   </head>
@@ -83,9 +112,7 @@
     <div class="wrapper">
       <div class="left">
         <div class="inner">
-          <p>The text in the yellow bordered div should be aligned to the right and bottom of the div. The yellow bordered div should also be aligned to the bottom right corner of the blue background div.</p>
-          <!-- <p>bottom of the div. The yellow bordered div should also be aligned to</p>
-          <p>the bottom right corner of the blue background div.</p> -->
+          <p class="text">The text in the yellow bordered div should be aligned to the right and bottom of the div. The yellow bordered div should also be aligned to the bottom right corner of the blue background div.</p>
         </div>
       </div>
       <div class="right">
@@ -100,20 +127,24 @@
     <div class="wrapper">
       <div class="center">
         <div class="inner">
+          <p>
           The blue bordered div (that contains this text) should be centered
           horizontally and vertically within the container div. Also, the text
           itself should be aligned to the center as well as organized to the
           center horizontally and vertically as well. The two red boxes should
           be positioned next to each other in one row!
+        </p>
         </div>
       </div>
       <div class="center">
         <div class="inner">
+          <p>
           The blue bordered div (that contains this text) should be centered
           horizontally and vertically within the container div. Also, the text
           itself should be aligned to the center as well as organized to the
           center horizontally and vertically as well. The two red boxes should
           be positioned next to each other in one row!
+        </p>
         </div>
       </div>
     </div>
