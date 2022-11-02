@@ -1,6 +1,6 @@
 const MAIN_DATA = [
-    { content: "<your first content>" },
-    { content: "<your second content>" },
+    { content: "Border Collie-----------------" },
+    { content: "Golden Retriever---------------" },
     { content: "Contact----------------"},
     { content: "About------------------"},
     { content: "Home--------------------"}

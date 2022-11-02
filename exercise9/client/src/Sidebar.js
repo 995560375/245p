@@ -6,8 +6,8 @@ function Sidebar() {
         <>
           <div className="sidebar">
             <div class="sidenav">
-              <Link to="/">First</Link>
-              <Link to="exampledataview">Second</Link>
+              <Link to="/">BC</Link>
+              <Link to="exampledataview">GR</Link>
             </div>
           </div>
         </>
